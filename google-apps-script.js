@@ -1,11 +1,8 @@
 /**
- * Google Apps Script for handling form submissions
+ * Google Apps Script for handling Gokhale Bandhu Diwali Faral order form submissions
  *
  * ⚠️ IMPORTANT: This file is NOT meant to run in your local project!
  * This code should be copied and pasted into the Google Apps Script editor.
- *
- * SpreadsheetApp, ContentService, Logger, and MailApp are built-in global
- * objects provided by Google Apps Script environment.
  *
  * SETUP INSTRUCTIONS:
  * 1. Open your Google Sheet
@@ -20,52 +17,42 @@
  * 10. Authorize the script when prompted
  */
 
-// Configuration
-const SHEET_NAME = "Orders" // Change this to your sheet name
-
 function doPost(e) {
   try {
-    // Parse the incoming JSON data
     const data = JSON.parse(e.postData.contents)
+    
+    // Determine which sheet to use based on order type
+    let sheetName;
+    if (data.orderType === 'In Pune') {
+      sheetName = 'InPune';
+    } else if (data.orderType === 'Outside Pune') {
+      sheetName = 'OutsidePune';
+    } else {
+      sheetName = 'International';
+    }
 
-    // Get the active spreadsheet
     const ss = SpreadsheetApp.getActiveSpreadsheet()
-    let sheet = ss.getSheetByName(SHEET_NAME)
+    let sheet = ss.getSheetByName(sheetName)
 
     // Create sheet if it doesn't exist
     if (!sheet) {
-      sheet = ss.insertSheet(SHEET_NAME)
+      sheet = ss.insertSheet(sheetName)
 
       const headers = [
         "Timestamp",
         "Order Type",
-        "Email",
         "Name",
         "Contact Number",
         "Shipping Address",
         "Country",
         "Dispatch Date",
-        "Saffron Flavoured Motichoor Ladoo",
-        "Besan Ladoo",
-        "Paushtik Ladoo",
-        "Sweet Whole Wheat Shankarpale with Jaggery",
-        "Khare Shankarpale",
-        "Bhajani Chakali",
-        "Bhajani Kadboli",
-        "Plain Shev",
-        "Garlic Shev",
-        "Premium Chivada",
-        "Anarase",
-        "Dink Ladoo",
-        "Nachani-Moog Ladoo",
-        "Ola Naral Karanji",
-        "Puranpoli",
-        "Diwali Faral Gift Box 1",
-        "Diwali Faral Gift Box 2",
+        "Products Ordered",
         "Total Boxes",
+        "Total Weight (kg)",
         "Subtotal (₹)",
-        "Delivery Fee (₹)",
+        "Delivery Fee",
         "Grand Total (₹)",
+        "Payment Status"
       ]
 
       sheet.getRange(1, 1, 1, headers.length).setValues([headers])
@@ -75,63 +62,48 @@ function doPost(e) {
       headerRange.setBackground("#8e24aa")
       headerRange.setFontColor("#ffffff")
 
-      // Freeze header row
       sheet.setFrozenRows(1)
+
+      const protection = sheet.protect().setDescription('Order data - Protected from deletion');
+      
+      // Allow all editors to edit, but prevent deletion
+      protection.setWarningOnly(true);
+      
+      Logger.log('Sheet protection enabled for: ' + sheetName);
     }
 
-    // Prepare row data
-    const productNames = [
-      "Saffron Flavoured Motichoor Ladoo",
-      "Besan Ladoo",
-      "Paushtik Ladoo",
-      "Sweet Whole Wheat Shankarpale with Jaggery",
-      "Khare Shankarpale",
-      "Bhajani Chakali",
-      "Bhajani Kadboli",
-      "Plain Shev",
-      "Garlic Shev",
-      "Premium Chivada",
-      "Anarase",
-      "Dink Ladoo",
-      "Nachani-Moog Ladoo",
-      "Ola Naral Karanji",
-      "Puranpoli",
-      "Diwali Faral Gift Box 1",
-      "Diwali Faral Gift Box 2",
-    ]
-
-    let totalBoxes = 0
-    const productQuantities = productNames.map((name) => {
-      const qty = data.products[name] || 0
-      totalBoxes += qty
-      return qty
-    })
+    let productsOrdered = '';
+    for (const [product, quantity] of Object.entries(data.products)) {
+      if (quantity > 0) {
+        productsOrdered += `${product}: ${quantity}\n`;
+      }
+    }
 
     const rowData = [
       new Date(data.timestamp),
       data.orderType,
-      data.email,
       data.name,
       data.contact,
       data.address,
       data.country,
       data.dispatchDate,
-      ...productQuantities,
-      data.totalBoxes || totalBoxes,
+      productsOrdered,
+      data.totalBoxes || 0,
+      data.totalWeightKg || 0,
       data.subtotal || 0,
-      data.deliveryFee || 0,
+      data.deliveryFee || 'To be informed',
       data.grandTotal || 0,
+      'Payment Confirmed'
     ]
 
-    // Append the data to the sheet
     sheet.appendRow(rowData)
 
-    // Auto-resize columns for better readability
-    sheet.autoResizeColumns(1, rowData.length)
+    sheet.autoResizeColumns(1, 14)
 
-    sendEmailNotification(data, totalBoxes)
+    updateKitchenPrepSheet(ss, data.products)
 
-    // Return success response
+    sendEmailNotification(data, sheetName)
+
     return ContentService.createTextOutput(
       JSON.stringify({
         status: "success",
@@ -139,10 +111,8 @@ function doPost(e) {
       }),
     ).setMimeType(ContentService.MimeType.JSON)
   } catch (error) {
-    // Log error
     Logger.log("Error: " + error.toString())
 
-    // Return error response
     return ContentService.createTextOutput(
       JSON.stringify({
         status: "error",
@@ -152,12 +122,81 @@ function doPost(e) {
   }
 }
 
-function sendEmailNotification(data, totalBoxes) {
+function updateKitchenPrepSheet(ss, products) {
+  try {
+    let kitchenSheet = ss.getSheetByName('Kitchen Prep');
+    
+    // Create Kitchen Prep sheet if it doesn't exist
+    if (!kitchenSheet) {
+      kitchenSheet = ss.insertSheet('Kitchen Prep');
+      
+      const headers = ['Product Name', 'Total Quantity'];
+      kitchenSheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+      
+      const headerRange = kitchenSheet.getRange(1, 1, 1, headers.length);
+      headerRange.setFontWeight('bold');
+      headerRange.setBackground('#d4af37');
+      headerRange.setFontColor('#ffffff');
+      
+      kitchenSheet.setFrozenRows(1);
+      kitchenSheet.setColumnWidth(1, 400);
+      kitchenSheet.setColumnWidth(2, 150);
+      
+      Logger.log('Kitchen Prep sheet created');
+    }
+    
+    // Get all existing data from Kitchen Prep sheet
+    const lastRow = kitchenSheet.getLastRow();
+    let existingData = {};
+    
+    if (lastRow > 1) {
+      const dataRange = kitchenSheet.getRange(2, 1, lastRow - 1, 2);
+      const values = dataRange.getValues();
+      
+      values.forEach(row => {
+        if (row[0]) {
+          existingData[row[0]] = parseInt(row[1]) || 0;
+        }
+      });
+    }
+    
+    // Add new order quantities to existing totals
+    for (const [product, quantity] of Object.entries(products)) {
+      if (quantity > 0) {
+        if (existingData[product]) {
+          existingData[product] += quantity;
+        } else {
+          existingData[product] = quantity;
+        }
+      }
+    }
+    
+    // Clear existing data (except headers)
+    if (lastRow > 1) {
+      kitchenSheet.getRange(2, 1, lastRow - 1, 2).clear();
+    }
+    
+    // Write updated data back to sheet
+    const sortedProducts = Object.keys(existingData).sort();
+    const newData = sortedProducts.map(product => [product, existingData[product]]);
+    
+    if (newData.length > 0) {
+      kitchenSheet.getRange(2, 1, newData.length, 2).setValues(newData);
+    }
+    
+    Logger.log('Kitchen Prep sheet updated successfully');
+    
+  } catch (error) {
+    Logger.log('Error updating Kitchen Prep sheet: ' + error.toString());
+  }
+}
+
+function sendEmailNotification(data, sheetName) {
   try {
     // Replace with your email address
     const recipientEmail = "gokhalebandhu7@gmail.com"
 
-    const subject = `New Diwali Faral Order from ${data.name}`
+    const subject = `New Diwali Faral Order - ${data.orderType} - ${data.name}`
 
     let productList = ""
     for (const [product, quantity] of Object.entries(data.products)) {
@@ -173,7 +212,6 @@ Order Details:
 --------------
 Order Type: ${data.orderType}
 Name: ${data.name}
-Email: ${data.email}
 Contact: ${data.contact}
 Address: ${data.address}
 Country: ${data.country}
@@ -185,54 +223,47 @@ ${productList}
 
 Order Summary:
 --------------
-Total Boxes: ${data.totalBoxes || totalBoxes}
+Total Boxes: ${data.totalBoxes || 0}
+Total Weight: ${data.totalWeightKg || 0} kg
 Subtotal: ₹${data.subtotal || 0}
-Delivery Fee: ${data.deliveryFee === 0 ? 'FREE' : '₹' + (data.deliveryFee || 0)}
+Delivery Fee: ${data.deliveryFee || 'To be informed'}
 Grand Total: ₹${data.grandTotal || 0}
+Payment Status: Payment Confirmed
 
+Sheet: ${sheetName}
 Timestamp: ${new Date(data.timestamp).toLocaleString()}
+
+---
+Gokhale Bandhu - Diwali Faral Orders
+Contact: +91 9881763116
     `
 
     MailApp.sendEmail(recipientEmail, subject, body)
   } catch (error) {
     Logger.log("Email notification error: " + error.toString())
-    // Don't throw error - email is optional
   }
 }
 
 function testSetup() {
   const testData = {
     timestamp: new Date().toISOString(),
-    orderType: "Domestic",
-    email: "test@example.com",
+    orderType: "In Pune",
     name: "Test User",
-    contact: "1234567890",
-    address: "Test Address",
+    contact: "9881763116",
+    address: "Test Address, Pune",
     country: "N/A",
     dispatchDate: "13/10/2025",
     products: {
-      "Saffron Flavoured Motichoor Ladoo": 2,
-      "Besan Ladoo": 1,
-      "Paushtik Ladoo": 0,
-      "Sweet Whole Wheat Shankarpale with Jaggery": 0,
-      "Khare Shankarpale": 0,
-      "Bhajani Chakali": 0,
-      "Bhajani Kadboli": 0,
-      "Plain Shev": 0,
-      "Garlic Shev": 0,
-      "Premium Chivada": 0,
-      Anarase: 0,
-      "Dink Ladoo": 0,
-      "Nachani-Moog Ladoo": 0,
-      "Ola Naral Karanji": 0,
-      Puranpoli: 0,
-      "Diwali Faral Gift Box 1": 1,
-      "Diwali Faral Gift Box 2": 0,
+      "Bhajani Chakali (200gm)": 2,
+      "Bhajani Chakali (500gm)": 1,
+      "Besan Ladoo (200gm)": 1,
+      "Motichoor Ladoo (500gm)": 1
     },
-    totalBoxes: 4,
-    subtotal: 975,
-    deliveryFee: 90,
-    grandTotal: 1065,
+    totalBoxes: 5,
+    totalWeightKg: 1.5,
+    subtotal: 925,
+    deliveryFee: "₹80",
+    grandTotal: 1005,
   }
 
   const e = {
