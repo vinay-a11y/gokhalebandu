@@ -155,7 +155,7 @@ function doPost(e) {
 function sendEmailNotification(data, totalBoxes) {
   try {
     // Replace with your email address
-    const recipientEmail = "gokhalebandhugokhalebandhu7@gmail.com"
+    const recipientEmail = "gokhalebandhu7@gmail.com"
 
     const subject = `New Diwali Faral Order from ${data.name}`
 
