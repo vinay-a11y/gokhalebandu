@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gokhale Bandhu - Diwali Faral Order Form</title>
-    <style>
-       /* Reset */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gokhale Bandhu - Diwali Faral Order Form</title>
+  <style>
+    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -35,6 +36,7 @@
       padding: 20px;
       background: #fff;
     }
+
     .logo-container img {
       max-width: 300px;
       height: auto;
@@ -46,11 +48,13 @@
       padding: 30px;
       text-align: center;
     }
+
     .header h1 {
       font-size: 2.5rem;
       margin-bottom: 10px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
+
     .header p {
       font-size: 1.1rem;
       opacity: 0.95;
@@ -65,6 +69,7 @@
       margin: 16px clamp(8px, 3vw, 40px);
       text-align: center;
     }
+
     .brand-info p {
       color: #6a1b9a;
       font-weight: 600;
@@ -79,6 +84,7 @@
     .form-section {
       margin-bottom: 28px;
     }
+
     .form-section h2 {
       color: #6a1b9a;
       font-size: 1.5rem;
@@ -97,12 +103,14 @@
       color: #555;
       font-weight: 600;
     }
+
     .required {
       color: #d32f2f;
     }
 
     input[type='text'],
     input[type='tel'],
+    input[type='email'],
     input[type='number'],
     textarea,
     select {
@@ -113,12 +121,14 @@
       font-size: 1rem;
       transition: border-color 0.3s;
     }
+
     input:focus,
     textarea:focus,
     select:focus {
       outline: none;
       border-color: #8e24aa;
     }
+
     textarea {
       resize: vertical;
       min-height: 80px;
@@ -129,11 +139,13 @@
       gap: 16px;
       flex-wrap: wrap;
     }
+
     .radio-option {
       display: flex;
       align-items: center;
       gap: 8px;
     }
+
     input[type='radio'],
     input[type='checkbox'] {
       width: 20px;
@@ -148,6 +160,7 @@
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 16px;
     }
+
     .product-item,
     .product-item-dual {
       background: #f8f9fa;
@@ -156,21 +169,25 @@
       border: 2px solid #e0e0e0;
       transition: border-color 0.3s;
     }
+
     .product-item:hover,
     .product-item-dual:hover {
       border-color: #8e24aa;
     }
+
     .product-item label {
       font-size: 0.95rem;
       margin-bottom: 8px;
       display: block;
     }
+
     .product-price {
       color: #d4af37;
       font-weight: 700;
       font-size: 1.1rem;
       margin-top: 5px;
     }
+
     .product-item input {
       width: 100%;
     }
@@ -183,12 +200,15 @@
       padding-bottom: 8px;
       border-bottom: 2px solid #8e24aa;
     }
+
     .size-input-group {
       margin-bottom: 10px;
     }
+
     .size-input-group:last-child {
       margin-bottom: 0;
     }
+
     .size-label {
       display: flex;
       justify-content: space-between;
@@ -197,10 +217,12 @@
       font-size: 0.9rem;
       color: #555;
     }
+
     .size-price {
       color: #d4af37;
       font-weight: 700;
     }
+
     .size-input-group input {
       width: 100%;
       padding: 8px;
@@ -211,16 +233,19 @@
       background: linear-gradient(135deg, #f3e5f5 0%, #fff9e6 100%);
       border: 3px solid #8e24aa;
       border-radius: 12px;
-      padding: 22px; /* slightly tighter */
+      padding: 22px;
+      /* slightly tighter */
       margin-bottom: 22px;
       box-shadow: 0 4px 15px rgba(142, 36, 170, 0.2);
     }
+
     .order-summary h3 {
       color: #6a1b9a;
       margin-bottom: 12px;
       font-size: 1.3rem;
       text-align: center;
     }
+
     .summary-row {
       display: flex;
       justify-content: space-between;
@@ -228,17 +253,21 @@
       border-bottom: 1px solid #e0e0e0;
       font-size: 1.03rem;
     }
+
     .summary-row:last-child {
       border-bottom: none;
     }
+
     .summary-label {
       color: #555;
       font-weight: 600;
     }
+
     .summary-value {
       color: #6a1b9a;
       font-weight: 700;
     }
+
     .total-row {
       background: linear-gradient(135deg, #8e24aa 0%, #d4af37 100%);
       color: #fff;
@@ -247,6 +276,7 @@
       margin-top: 10px;
       font-size: 1.2rem;
     }
+
     .total-row .summary-label,
     .total-row .summary-value {
       color: #fff;
@@ -259,15 +289,18 @@
       padding: 18px;
       margin-bottom: 22px;
     }
+
     .info-box h3 {
       color: #6a1b9a;
       margin-bottom: 8px;
     }
+
     .info-box p,
     .info-box ul {
       color: #555;
       line-height: 1.6;
     }
+
     .info-box ul {
       margin-left: 20px;
       margin-top: 8px;
@@ -285,6 +318,7 @@
       gap: 12px;
       margin-top: 22px;
     }
+
     button {
       flex: 1;
       padding: 14px 24px;
@@ -295,26 +329,32 @@
       cursor: pointer;
       transition: all 0.3s;
     }
+
     .submit-btn {
       background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 50%, #d4af37 100%);
       color: #fff;
     }
+
     .submit-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 20px rgba(142, 36, 170, 0.4);
     }
+
     .submit-btn:disabled {
       opacity: 0.6;
       cursor: not-allowed;
       transform: none;
     }
+
     .reset-btn {
       background: #6c757d;
       color: #fff;
     }
+
     .reset-btn:hover {
       background: #5a6268;
     }
+
     .hidden {
       display: none;
     }
@@ -336,14 +376,17 @@
       font-weight: 600;
       max-width: 400px;
     }
+
     .toast.show {
       display: block;
     }
+
     @keyframes slideIn {
       from {
         transform: translateX(400px);
         opacity: 0;
       }
+
       to {
         transform: translateX(0);
         opacity: 1;
@@ -357,22 +400,39 @@
       text-align: center;
       animation: fadeIn 0.5s ease-in;
     }
+
     .success-page.show {
       display: block;
     }
+
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
+
     .success-icon {
       font-size: 5rem;
       margin-bottom: 16px;
       animation: scaleIn 0.6s ease-out;
     }
+
     @keyframes scaleIn {
-      from { transform: scale(0) rotate(-180deg); opacity: 0; }
-      to { transform: scale(1) rotate(0deg); opacity: 1; }
+      from {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
     }
+
     .success-title {
       color: #6a1b9a;
       font-size: 2.3rem;
@@ -380,6 +440,7 @@
       font-weight: 700;
       text-shadow: 2px 2px 4px rgba(106, 27, 154, 0.1);
     }
+
     .success-subtitle {
       color: #666;
       font-size: 1.2rem;
@@ -399,23 +460,27 @@
       text-align: left;
       box-shadow: 0 8px 30px rgba(142, 36, 170, 0.25);
     }
+
     .bill-header {
       text-align: center;
       border-bottom: 3px solid #8e24aa;
       padding-bottom: 16px;
       margin-bottom: 22px;
     }
+
     .bill-header h2 {
       color: #6a1b9a;
       font-size: 1.8rem;
       margin-bottom: 6px;
       font-weight: 700;
     }
+
     .bill-header p {
       color: #666;
       font-size: 1rem;
       font-weight: 500;
     }
+
     .bill-section {
       margin-bottom: 22px;
       background: #fff;
@@ -423,6 +488,7 @@
       border-radius: 12px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
+
     .bill-section h3 {
       color: #6a1b9a;
       font-size: 1.2rem;
@@ -431,6 +497,7 @@
       padding-bottom: 8px;
       font-weight: 700;
     }
+
     .bill-row {
       display: flex;
       justify-content: space-between;
@@ -439,19 +506,23 @@
       font-size: 1.02rem;
       gap: 12px;
     }
+
     .bill-row.product-row {
       border-bottom: 1px dashed #e0e0e0;
       padding: 10px 0;
     }
+
     .bill-row.product-row:last-child {
       border-bottom: none;
     }
+
     .product-name {
       flex: 1;
       font-weight: 600;
       color: #333;
       word-break: break-word;
     }
+
     .product-qty {
       width: 78px;
       text-align: center;
@@ -470,6 +541,7 @@
       margin-top: 16px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
+
     .bill-total-row {
       display: flex;
       justify-content: space-between;
@@ -478,9 +550,11 @@
       color: #555;
       border-bottom: 1px solid #f0f0f0;
     }
+
     .bill-total-row:last-child {
       border-bottom: none;
     }
+
     .bill-total-row.grand-total {
       background: linear-gradient(135deg, #8e24aa 0%, #d4af37 100%);
       color: #fff;
@@ -505,6 +579,7 @@
       margin-top: 20px;
       box-shadow: 0 4px 15px rgba(142, 36, 170, 0.3);
     }
+
     .new-order-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 25px rgba(142, 36, 170, 0.4);
@@ -516,28 +591,34 @@
       padding: clamp(16px, 4vw, 40px);
       animation: fadeIn 0.5s ease-in;
     }
+
     .payment-page.show {
       display: block;
     }
+
     .payment-header {
       text-align: center;
       margin-bottom: 22px;
     }
+
     .payment-header h2 {
       color: #6a1b9a;
       font-size: 2rem;
       margin-bottom: 8px;
     }
+
     .payment-header p {
       color: #666;
       font-size: 1.05rem;
     }
+
     .payment-container {
       /*  let it be full width on phones, centered on larger screens */
       max-width: 700px;
       width: 100%;
       margin: 0 auto;
     }
+
     .payment-summary {
       background: linear-gradient(135deg, #f3e5f5 0%, #fff9e6 100%);
       border: 3px solid #8e24aa;
@@ -546,12 +627,14 @@
       margin-bottom: 22px;
       box-shadow: 0 4px 15px rgba(142, 36, 170, 0.2);
     }
+
     .payment-summary h3 {
       color: #6a1b9a;
       margin-bottom: 12px;
       font-size: 1.3rem;
       text-align: center;
     }
+
     .payment-details {
       background: #fff;
       border: 3px solid #d4af37;
@@ -561,17 +644,20 @@
       margin-bottom: 22px;
       text-align: center;
     }
+
     .payment-details h3 {
       color: #6a1b9a;
       font-size: 1.35rem;
       margin-bottom: 14px;
     }
+
     .upi-info {
       background: #f8f9fa;
       padding: 16px;
       border-radius: 8px;
       margin-bottom: 16px;
     }
+
     .upi-id {
       font-size: 1.2rem;
       font-weight: 700;
@@ -583,6 +669,7 @@
       border-radius: 8px;
       word-break: break-all;
     }
+
     .qr-code {
       margin: 14px 0;
       padding: 16px;
@@ -590,6 +677,7 @@
       border-radius: 8px;
       display: inline-block;
     }
+
     .qr-code img {
       max-width: 240px;
       height: auto;
@@ -605,10 +693,12 @@
       margin-bottom: 18px;
       text-align: left;
     }
+
     .payment-instructions h4 {
       color: #6a1b9a;
       margin-bottom: 8px;
     }
+
     .payment-instructions ol {
       margin-left: 20px;
       color: #555;
@@ -622,6 +712,7 @@
       padding: 16px;
       margin-bottom: 16px;
     }
+
     .payment-confirmation label {
       display: flex;
       align-items: center;
@@ -630,6 +721,7 @@
       color: #333;
       cursor: pointer;
     }
+
     .payment-confirmation input[type='checkbox'] {
       width: 22px;
       height: 22px;
@@ -639,24 +731,30 @@
       display: flex;
       gap: 12px;
     }
+
     .payment-buttons button {
       flex: 1;
     }
+
     .back-btn {
       background: #6c757d;
       color: #fff;
     }
+
     .back-btn:hover {
       background: #5a6268;
     }
+
     .place-order-btn {
       background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 50%, #d4af37 100%);
       color: #fff;
     }
+
     .place-order-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 20px rgba(142, 36, 170, 0.4);
     }
+
     .place-order-btn:disabled {
       opacity: 0.6;
       cursor: not-allowed;
@@ -672,21 +770,25 @@
       margin-top: 24px;
       text-align: center;
     }
+
     .footer-info h3 {
       color: #6a1b9a;
       font-size: 1.3rem;
       margin-bottom: 10px;
     }
+
     .footer-info p {
       color: #555;
       font-size: 1.02rem;
       margin: 8px 0;
       line-height: 1.6;
     }
+
     .footer-info strong {
       color: #6a1b9a;
       font-weight: 700;
     }
+
     .contact-links {
       display: flex;
       justify-content: center;
@@ -694,6 +796,7 @@
       margin-top: 12px;
       flex-wrap: wrap;
     }
+
     .contact-item {
       display: flex;
       align-items: center;
@@ -702,11 +805,13 @@
       font-weight: 600;
       font-size: 1.02rem;
     }
+
     .contact-item a {
       color: #8e24aa;
       text-decoration: none;
       transition: color 0.3s;
     }
+
     .contact-item a:hover {
       color: #6a1b9a;
       text-decoration: underline;
@@ -714,40 +819,109 @@
 
     /* Mobile-first refinements */
     @media (max-width: 768px) {
-      .header { padding: 22px; }
-      .header h1 { font-size: 1.9rem; }
-      .product-grid { grid-template-columns: 1fr; }
-      .button-group { flex-direction: column; }
-      .toast { right: 10px; left: 10px; max-width: none; }
+      .header {
+        padding: 22px;
+      }
 
-      .success-title { font-size: 1.9rem; }
-      .success-subtitle { font-size: 1.05rem; }
-      .success-icon { font-size: 3.6rem; }
+      .header h1 {
+        font-size: 1.9rem;
+      }
 
-      .bill-section { padding: 14px; }
-      .product-name { font-size: 0.95rem; }
-      .product-qty { width: 70px; font-size: 0.88rem; }
-      .bill-total-row.grand-total { font-size: 1.25rem; padding: 14px 16px; }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
 
-      .payment-header h2 { font-size: 1.7rem; }
-      .payment-container { max-width: none; } /*  allow full width */
+      .button-group {
+        flex-direction: column;
+      }
+
+      .toast {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+      }
+
+      .success-title {
+        font-size: 1.9rem;
+      }
+
+      .success-subtitle {
+        font-size: 1.05rem;
+      }
+
+      .success-icon {
+        font-size: 3.6rem;
+      }
+
+      .bill-section {
+        padding: 14px;
+      }
+
+      .product-name {
+        font-size: 0.95rem;
+      }
+
+      .product-qty {
+        width: 70px;
+        font-size: 0.88rem;
+      }
+
+      .bill-total-row.grand-total {
+        font-size: 1.25rem;
+        padding: 14px 16px;
+      }
+
+      .payment-header h2 {
+        font-size: 1.7rem;
+      }
+
+      .payment-container {
+        max-width: none;
+      }
+
+      /*  allow full width */
       .payment-summary,
       .payment-details,
       .payment-instructions,
-      .payment-confirmation { padding: 16px; }
-      .upi-id { font-size: 1.05rem; }
-      .qr-code img { max-width: 180px; }
-      .payment-buttons { flex-direction: column; }
+      .payment-confirmation {
+        padding: 16px;
+      }
 
-      .contact-links { flex-direction: column; gap: 12px; }
+      .upi-id {
+        font-size: 1.05rem;
+      }
+
+      .qr-code img {
+        max-width: 180px;
+      }
+
+      .payment-buttons {
+        flex-direction: column;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        gap: 12px;
+      }
     }
 
     /* Even smaller phones */
     @media (max-width: 400px) {
+
       /*  extra-tight paddings to widen cards on very small devices */
-      body { padding: 8px; }
-      .form-content { padding: 12px; }
-      .brand-info { margin-left: 8px; margin-right: 8px; }
+      body {
+        padding: 8px;
+      }
+
+      .form-content {
+        padding: 12px;
+      }
+
+      .brand-info {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+
       .order-summary,
       .payment-summary,
       .payment-details,
@@ -755,567 +929,677 @@
       .payment-confirmation,
       .bill-container,
       .info-box,
-      .footer-info { padding-left: 14px; padding-right: 14px; }
+      .footer-info {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
     }
-    </style>
+  </style>
 </head>
+
 <body>
-    <div class="toast" id="toast">
-        ✅ Order placed successfully!
+  <div class="toast" id="toast">
+    ✅ Order placed successfully!
+  </div>
+
+  <div class="container">
+   <div class="logo-container">
+  <img src="https://i.ibb.co/pvfRTMdQ/logo.jpg" alt="Gokhale Bandhu Logo">
+</div>
+    <div class="header">
+      <h1>🪔 Diwali Faral Order Form 🪔</h1>
+      <p>Place your order for authentic homemade Diwali treats</p>
     </div>
 
-    <div class="container">
-        <!-- Added logo container -->
-        <div class="logo-container">
-            <img src="logo.png" alt="Gokhale Bandhu Logo">
-        </div>
-
-        <div class="header">
-            <h1>🪔 Diwali Faral Order Form 🪔</h1>
-            <p>Place your order for authentic homemade Diwali treats</p>
-        </div>
-
-        <!-- Added brand information -->
-        <div class="brand-info">
-            <p>✨ Brand: Gokhale Bandhu ✨</p>
-            <p>🥥 Uses Groundnut Refined Oil | 🧈 Uses Pure Ghee</p>
-            <p>🚫 No Colours & Preservatives</p>
-        </div>
-
-        <div class="form-content">
-            <!-- ADDED PAYMENT PAGE SECTION -->
-            <div class="payment-page" id="paymentPage">
-                <div class="payment-header">
-                    <h2>💳 Payment Details</h2>
-                    <p>Please complete the payment to confirm your order</p>
-                </div>
-
-                <div class="payment-container">
-                    <div class="payment-summary">
-                        <h3>📊 Order Summary</h3>
-                        <div class="summary-row">
-                            <span class="summary-label">Total Boxes:</span>
-                            <span class="summary-value" id="paymentTotalBoxes">0</span>
-                        </div>
-                        <div class="summary-row">
-                            <span class="summary-label">Total Weight:</span>
-                            <span class="summary-value" id="paymentTotalWeight">0 kg</span>
-                        </div>
-                        <div class="summary-row">
-                            <span class="summary-label">Subtotal:</span>
-                            <span class="summary-value" id="paymentSubtotal">₹0</span>
-                        </div>
-                        <div class="summary-row">
-                            <span class="summary-label">Delivery Fee:</span>
-                            <span class="summary-value" id="paymentDeliveryFee">To be informed</span>
-                        </div>
-                        <div class="summary-row total-row">
-                            <span class="summary-label">Amount to Pay:</span>
-                            <span class="summary-value" id="paymentGrandTotal">₹0</span>
-                        </div>
-                    </div>
-
-                    <div class="payment-details">
-                        <h3>🪔 Pay via UPI</h3>
-                        
-                        <div class="upi-info">
-                            <p style="color: #666; margin-bottom: 10px;">Scan QR Code or use UPI ID:</p>
-                            <div class="upi-id">gokhalebandhu@paytm</div>
-                        </div>
-
-                        <div class="qr-code">
-                            <!-- Replace with actual QR code image URL -->
-                            <img src="payment.jpg" alt="UPI Payment QR Code">
-                        </div>
-
-                        <p style="color: #d32f2f; font-weight: 600; margin-top: 15px;">
-                            ⚠️ Please use the above UPI ID or scan the QR code to make payment
-                        </p>
-                    </div>
-
-                    <div class="payment-instructions">
-                        <h4>📝 Payment Instructions:</h4>
-                        <ol>
-                            <li>Open any UPI app (Google Pay, PhonePe, Paytm, etc.)</li>
-                            <li>Scan the QR code above OR enter the UPI ID manually</li>
-                            <li>Enter the amount: <strong id="paymentAmount">₹0</strong></li>
-                            <li>Complete the payment</li>
-                            <li>Check the confirmation box below after payment</li>
-                            <li>Click "Place Order" to submit your order</li>
-                        </ol>
-                    </div>
-
-                    <div class="payment-confirmation">
-                        <label>
-                            <input type="checkbox" id="paymentConfirmed">
-                            <span>I have completed the payment via UPI <span class="required">*</span></span>
-                        </label>
-                    </div>
-
-                    <div class="payment-buttons">
-                        <button type="button" class="back-btn" onclick="goBackToForm()">
-                            ← Back to Form
-                        </button>
-                        <button type="button" class="place-order-btn" id="placeOrderBtn" onclick="submitOrderToSheet()">
-                            Place Order
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="success-page" id="successPage">
-                <div class="success-icon">🎉</div>
-                <h1 class="success-title">Order Placed Successfully!</h1>
-                <p class="success-subtitle">Thank you for your order. We'll contact you soon for confirmation.</p>
-                
-                <div class="bill-container" id="billContainer">
-                    <div class="bill-header">
-                        <h2>📋 Order Bill</h2>
-                        <p id="billDate"></p>
-                    </div>
-
-                    <div class="bill-section">
-                        <h3>Customer Details</h3>
-                        <div class="bill-row">
-                            <span>Name:</span>
-                            <span id="billName"></span>
-                        </div>
-                        <div class="bill-row">
-                            <span>Contact:</span>
-                            <span id="billContact"></span>
-                        </div>
-                        <div class="bill-row">
-                            <span>Dispatch Date:</span>
-                            <span id="billDispatch"></span>
-                        </div>
-                    </div>
-
-                    <div class="bill-section">
-                        <h3>Order Details</h3>
-                        <div id="billProducts"></div>
-                    </div>
-
-                    <div class="bill-total-section">
-                        <div class="bill-total-row">
-                            <span>Total Boxes:</span>
-                            <span id="billTotalBoxes"></span>
-                        </div>
-                        <div class="bill-total-row">
-                            <span>Total Weight:</span>
-                            <span id="billTotalWeight"></span>
-                        </div>
-                        <div class="bill-total-row">
-                            <span>Subtotal:</span>
-                            <span id="billSubtotal"></span>
-                        </div>
-                        <div class="bill-total-row">
-                            <span>Delivery Fee:</span>
-                            <span id="billDeliveryFee"></span>
-                        </div>
-                        <div class="bill-total-row grand-total">
-                            <span>Grand Total:</span>
-                            <span id="billGrandTotal"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Added dispatch and contact information to success page -->
-                <div class="footer-info">
-                    <h3>📦 Dispatch & Contact Information</h3>
-                    <p><strong>🏭 Orders are dispatched from:</strong> Pune, Maharashtra</p>
-                    <p><strong>❓ For any questions related to your order:</strong></p>
-                    <div class="contact-links">
-                        <div class="contact-item">
-                            📞 <a href="tel:+919881763116">+91 9881763116</a>
-                        </div>
-                        <div class="contact-item">
-                            ✉️ <a href="mailto:gokhalebandhu7@gmail.com">gokhalebandhu7@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="new-order-btn" onclick="location.reload()">Place New Order</button>
-            </div>
-
-            <form id="orderForm">
-                <!-- Updated order type options -->
-                <div class="form-section">
-                    <h2>Order Type</h2>
-                    <div class="form-group">
-                        <label>Select Order Type <span class="required">*</span></label>
-                        <div class="radio-group">
-                            <div class="radio-option">
-                                <input type="radio" id="inPune" name="orderType" value="In Pune" checked>
-                                <label for="inPune">In Pune</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="outsidePune" name="orderType" value="Outside Pune">
-                                <label for="outsidePune">Outside Pune</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="international" name="orderType" value="International">
-                                <label for="international">International</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Removed size selection section - now each product has both sizes -->
-
-                <!-- Contact Information Section -->
-                <div class="form-section">
-                    <h2>Contact Information</h2>
-
-                    <div class="form-group">
-                        <label for="name">Full Name <span class="required">*</span></label>
-                        <input type="text" id="name" name="name" required>
-                        <span class="error-message" id="nameError">Please enter your name</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contact">Contact Number <span class="required">*</span></label>
-                        <input type="tel" id="contact" name="contact" required>
-                        <span class="error-message" id="contactError">Please enter a valid contact number</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="address">Shipping Address <span class="required">*</span></label>
-                        <textarea id="address" name="address" required></textarea>
-                        <span class="error-message" id="addressError">Please enter your shipping address</span>
-                    </div>
-
-                    <div class="form-group hidden" id="countryGroup">
-                        <label for="country">Country <span class="required">*</span></label>
-                        <input type="text" id="country" name="country">
-                        <span class="error-message" id="countryError">Please enter your country</span>
-                    </div>
-                </div>
-
-                <!-- Date of Dispatch Section -->
-                <div class="form-section">
-                    <h2>Date of Dispatch</h2>
-                    <div class="form-group">
-                        <label for="dispatchDate">Select Dispatch Date <span class="required">*</span></label>
-                        <select id="dispatchDate" name="dispatchDate" required>
-                            <option value="">-- Select Date --</option>
-                            <option value="13/10/2025">13/10/2025</option>
-                            <option value="14/10/2025">14/10/2025</option>
-                            <option value="Other">Other</option>
-                        </select>
-                        <span class="error-message" id="dispatchError">Please select a dispatch date</span>
-                    </div>
-
-                    <div class="form-group hidden" id="otherDateGroup">
-                        <label for="otherDate">Specify Date</label>
-                        <input type="date" id="otherDate" name="otherDate">
-                    </div>
-                </div>
-
-               
-                <!-- Products Section -->
-                <div class="form-section">
-                    <h2>Select Products & Quantities</h2>
-                    <p style="margin-bottom: 20px; color: #666;">Enter the quantity for each product you wish to order (minimum 1 product required)</p>
-                    
-                    <div class="product-grid" id="productGrid">
-                        <!-- Products will be dynamically populated based on order type and size -->
-                    </div>
-                    <span class="error-message" id="productError">Please select at least one product</span>
-                </div>
-
-                <!-- Order Summary Section -->
-                <div class="form-section">
-                    <div class="order-summary">
-                        <h3>📊 Order Summary</h3>
-                        <div class="summary-row">
-                            <span class="summary-label">Total Boxes:</span>
-                            <span class="summary-value" id="totalBoxes">0</span>
-                        </div>
-                        <!-- Added total weight display -->
-                        <div class="summary-row">
-                            <span class="summary-label">Total Weight:</span>
-                            <span class="summary-value" id="totalWeight">0 kg</span>
-                        </div>
-                        <div class="summary-row">
-                            <span class="summary-label">Subtotal:</span>
-                            <span class="summary-value" id="subtotal">₹0</span>
-                        </div>
-                        <div class="summary-row">
-                            <span class="summary-label">Delivery Fee:</span>
-                            <span class="summary-value" id="deliveryFee">To be informed</span>
-                        </div>
-                        <div class="summary-row total-row">
-                            <span class="summary-label">Grand Total:</span>
-                            <span class="summary-value" id="grandTotal">₹0</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Agreement Section -->
-                <div class="form-section">
-                    <h2>Terms & Agreement</h2>
-                    <div class="info-box">
-                        <h3>📋 Order Policy</h3>
-                        <ul>
-                            <li>All products are made fresh to order</li>
-                            <li>Quality guaranteed - 100% homemade with premium ingredients</li>
-                        </ul>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="radio-option">
-                            <input type="checkbox" id="agreement" name="agreement" required>
-                            <label for="agreement">I agree to the terms and conditions <span class="required">*</span></label>
-                        </div>
-                        <span class="error-message" id="agreementError">You must agree to the terms</span>
-                    </div>
-                </div>
-
-                <!-- Submit Buttons -->
-                <div class="button-group">
-                    <button type="submit" class="submit-btn" id="submitBtn">
-                        Submit Order
-                    </button>
-                    <button type="reset" class="reset-btn">
-                        Reset Form
-                    </button>
-                </div>
-                     <!-- Updated delivery information -->
-                <div class="form-section">
-                    <div class="info-box">
-                        <h3>📦 Delivery Information</h3>
-                        <p><strong>Delivery charges will be informed by the admin.</strong></p>
-                        <p><strong>For reference:</strong></p>
-                        <ul>
-                            <li>Hingne, Sinhgad Road Pune & Maharashtra: Rs. 50 per kg (Tej, Anjani, Trackon Courier)</li>
-                            <li>Vidarbha: Rs. 60 per kg (Tej, Anjani, Trackon Courier)</li>
-                            <li>Remote places within Maharashtra: Charges may vary, handled by Delhivery Courier</li>
-                            <li>Out of Maharashtra: Rs. 130 per kg by Road, Rs. 230 per kg by Air</li>
-                            <li>Extreme North & North East: Rates depend on case-to-case basis</li>
-                        </ul>
-                        <p style="margin-top: 10px;"><strong>Storage:</strong> Store in an airtight container. Consume within 15 days for best taste.</p>
-                    </div>
-                </div>
-
-                <!-- Added dispatch and contact information footer -->
-                <div class="footer-info">
-                    <h3>📦 Dispatch & Contact Information</h3>
-                    <p><strong>🏭 Orders are dispatched from:</strong> Pune, Maharashtra</p>
-                    <p><strong>❓ For any questions related to your order, please contact us:</strong></p>
-                    <div class="contact-links">
-                        <div class="contact-item">
-                            📞 <a href="tel:+919881763116">+91 9881763116</a>
-                        </div>
-                        <div class="contact-item">
-                            ✉️ <a href="mailto:gokhalebandhu7@gmail.com">gokhalebandhu7@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <div class="brand-info">
+      <p>✨ Brand: Gokhale Bandhu ✨</p>
+      <p>🥥 Uses Groundnut Refined Oil | 🧈 Uses Pure Ghee</p>
+      <p>🚫 No Colours & Preservatives</p>
     </div>
 
-    <script>
-        // Configuration - Replace with your Google Apps Script Web App URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzzCXnab4OyXEF6W7ha2yPvJ4cGp_yij0oS0CXNBnViSnZ6M0udFKBOhScEgApbapP8/exec';
+    <div class="form-content">
+      <div class="payment-page" id="paymentPage">
+        <div class="payment-header">
+          <h2>💳 Payment Details</h2>
+          <p>Please complete the payment to confirm your order</p>
+        </div>
 
-        const productPrices = {
-            'In Pune': {
-                '200': {
-                    'Bhajani Chakali': 95,
-                    'Bhajani Kadboli': 95,
-                    'Premium Chiwda': 95,
-                    'Lasun Shev': 95,
-                    'Sadhi Shev': 90,
-                    'Khare Shankarpale': 90,
-                    'Sweet Shankarpale': 95,
-                    'Besan Ladoo': 125,
-                    'Motichoor Ladoo': 170,
-                    'Paushtik Ladoo': 140,
-                    
-                },
-                '500': {
-                    'Bhajani Chakali': 235,
-                    'Bhajani Kadboli': 235,
-                    'Premium Chiwda': 235,
-                    'Lasun Shev': 235,
-                    'Sadhi Shev': 220,
-                    'Khare Shankarpale': 220,
-                    'Sweet Shankarpale': 235,
-                    'Besan Ladoo': 310,
-                    'Motichoor Ladoo': 420,
-                    'Paushtik Ladoo': 340
+        <div class="payment-container">
+          <div class="payment-summary">
+            <h3>📊 Order Summary</h3>
+            <div class="summary-row">
+              <span class="summary-label">Total Boxes:</span>
+              <span class="summary-value" id="paymentTotalBoxes">0</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Total Weight:</span>
+              <span class="summary-value" id="paymentTotalWeight">0 kg</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Subtotal:</span>
+              <span class="summary-value" id="paymentSubtotal">₹0</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Delivery Fee:</span>
+              <span class="summary-value" id="paymentDeliveryFee">To be informed</span>
+            </div>
+            <div class="summary-row total-row">
+              <span class="summary-label">Amount to Pay:</span>
+              <span class="summary-value" id="paymentGrandTotal">₹0</span>
+            </div>
+          </div>
+          <div class="payment-details">
+            <h3>🪔 Pay via UPI</h3>
 
-                },
-                'giftBoxes': {
-                    'Diwali Faral Gift Box Type 1 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, besan ladoo(4) with surprise gift) - 0.6kg': 525,
-                    'Diwali Faral Gift Box Type 2 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, Motichoor Ladoo(4) with surprise gift) - 0.6kg': 630
-                }
-            },
-            'Outside Pune': {
-                '200': {
-                    'Bhajani Chakali': 95,
-                    'Bhajani Kadboli': 95,
-                    'Premium Chiwda': 95,
-                    'Lasun Shev': 95,
-                    'Sadhi Shev': 90,
-                    'Khare Shankarpale': 90,
-                    'Sweet Shankarpale': 95,
-                    'Besan Ladoo': 125,
-                    'Motichoor Ladoo': 170,
-                    'Paushtik Ladoo': 140
-                },
-                '500': {
-                    'Bhajani Chakali': 235,
-                    'Bhajani Kadboli': 235,
-                    'Premium Chiwda': 235,
-                    'Lasun Shev': 235,
-                    'Sadhi Shev': 220,
-                    'Khare Shankarpale': 220,
-                    'Sweet Shankarpale': 235,
-                    'Besan Ladoo': 310,
-                    'Motichoor Ladoo': 420,
-                    'Paushtik Ladoo': 340
-                },
-                'giftBoxes': {
-                    'Diwali Faral Gift Box Type 1 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, besan ladoo(4) with surprise gift) - 0.6kg': 525,
-                    'Diwali Faral Gift Box Type 2 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, Motichoor Ladoo(4) with surprise gift) - 0.6kg': 630
-                }
-            },
-            'International': {
-                'Saffron Flavoured Motichoor Ladoo': 175,
-                'Besan Ladoo': 125,
-                'Paushtik Ladoo': 140,
-                'Sweet Whole Wheat Shankarpale with Jaggery': 95,
-                'Khare Shankarpale': 90,
-                'Bhajani Chakali': 95,
-                'Bhajani Kadboli': 95,
-                'Plain Shev': 90,
-                'Garlic Shev': 95,
-                'Premium Chivada': 95,
-                'Anarase': 140,
-                'Dink Ladoo': 170,
-                'Nachani-Moog Ladoo': 120,
-                'Ola Naral Karanji': 140,
-                'Puranpoli': 40,
-                'giftBoxes': {
-                    'Diwali Faral Gift Box Type 1 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, besan ladoo(4) with surprise gift) - 0.6kg': 525,
-                    'Diwali Faral Gift Box Type 2 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, Motichoor Ladoo(4) with surprise gift) - 0.6kg': 630
-                }
-            }
-        };
+            <div class="upi-info">
+              <p style="color: #666; margin-bottom: 10px;">Scan QR Code or use UPI ID:</p>
+              <div class="upi-id">
+                <a href="" id="upiPaymentLink"
+                  target="_blank">
+                  91 9881763116
+                </a>
+              </div>
+            </div>
+            <div class="qr-code">
+              <img src="payment.jpg" alt="UPI Payment QR Code">
+            </div>
 
-        // DOM Elements
-        const form = document.getElementById('orderForm');
-        const orderTypeRadios = document.getElementsByName('orderType');
-        const countryGroup = document.getElementById('countryGroup');
-        const productGrid = document.getElementById('productGrid');
-        const dispatchDateSelect = document.getElementById('dispatchDate');
-        const otherDateGroup = document.getElementById('otherDateGroup');
-        const submitBtn = document.getElementById('submitBtn');
-        const toast = document.getElementById('toast');
-        const successPage = document.getElementById('successPage');
-        const billTotalWeight = document.getElementById('billTotalWeight');
-        const paymentPage = document.getElementById('paymentPage');
-        const placeOrderBtn = document.getElementById('placeOrderBtn');
+            <p style="color: #d32f2f; font-weight: 600; margin-top: 15px;">
+              ⚠️ Please use the above UPI ID or scan the QR code to make payment
+            </p>
+          </div>
+          <div class="payment-instructions">
+            <h4>📝 Payment Instructions:</h4>
+            <ol>
+              <li>Open any UPI app (Google Pay, PhonePe, Paytm, etc.)</li>
+              <li>Scan the QR code above OR enter the UPI ID manually</li>
+              <li>Enter the amount: <strong id="paymentAmount">₹0</strong></li>
+              <li>Complete the payment</li>
+              <li>Check the confirmation box below after payment</li>
+              <li>Click "Place Order" to submit your order</li>
+            </ol>
+          </div>
+
+          <div class="payment-confirmation">
+            <label>
+              <input type="checkbox" id="paymentConfirmed">
+              <span>I have completed the payment via UPI <span class="required">*</span></span>
+            </label>
+          </div>
+
+          <div class="payment-buttons">
+            <button type="button" class="back-btn" onclick="goBackToForm()">
+              ← Back to Form
+            </button>
+            <button type="button" class="place-order-btn" id="placeOrderBtn" onclick="submitOrderToSheet()">
+              Place Order
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="success-page" id="successPage">
+        <div class="success-icon">🎉</div>
+        <h1 class="success-title">Order Placed Successfully!</h1>
+        <p class="success-subtitle">Thank you for your order. We'll contact you soon for confirmation.</p>
+
+        <div class="bill-container" id="billContainer">
+          <div class="bill-header">
+            <h2>📋 Order Bill</h2>
+            <p id="billDate"></p>
+          </div>
+
+          <div class="bill-section">
+            <h3>Customer Details</h3>
+            <div class="bill-row">
+              <span>Name:</span>
+              <span id="billName"></span>
+            </div>
+            <div class="bill-row">
+              <span>Contact:</span>
+              <span id="billContact"></span>
+            </div>
+            <div class="bill-row">
+              <span>Email:</span>
+              <span id="billEmail"></span>
+            </div>
+            <div class="bill-row">
+              <span>Dispatch Date:</span>
+              <span id="billDispatch"></span>
+            </div>
+          </div>
+
+          <div class="bill-section">
+            <h3>Order Details</h3>
+            <div id="billProducts"></div>
+          </div>
+
+          <div class="bill-total-section">
+            <div class="bill-total-row">
+              <span>Total Boxes:</span>
+              <span id="billTotalBoxes"></span>
+            </div>
+            <div class="bill-total-row">
+              <span>Total Weight:</span>
+              <span id="billTotalWeight"></span>
+            </div>
+            <div class="bill-total-row">
+              <span>Subtotal:</span>
+              <span id="billSubtotal"></span>
+            </div>
+            <div class="bill-total-row">
+              <span>Delivery Fee:</span>
+              <span id="billDeliveryFee"></span>
+            </div>
+            <div class="bill-total-row grand-total">
+              <span>Grand Total:</span>
+              <span id="billGrandTotal"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-info">
+          <h3>📦 Dispatch & Contact Information</h3>
+          <p><strong>🏭 Orders are dispatched from:</strong> Higne Sinhgad Road Pune, Maharashtra</p>
+          <p><strong>❓ For any questions related to your order:</strong></p>
+          <div class="contact-links">
+            <div class="contact-item">
+              📞 <a href="tel:+919881763116">+91 9881763116</a>
+            </div>
+            <div class="contact-item">
+              ✉️ <a href="mailto:custcare.virtue@gmail.com">custcare.virtue@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
+        <button class="new-order-btn" onclick="location.reload()">Place New Order</button>
+      </div>
+
+      <form id="orderForm">
+         Updated order type options 
+        <div class="form-section">
+          <h2>Order Type</h2>
+          <div class="form-group">
+            <label>Select Order Type <span class="required">*</span></label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="inPune" name="orderType" value="In Pune" checked>
+                <label for="inPune">In Pune</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="outsidePune" name="orderType" value="Outside Pune">
+                <label for="outsidePune">Outside Pune</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="international" name="orderType" value="International">
+                <label for="international">International</label>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
-        let currentOrderType = 'In Pune';
-        let pendingOrderData = null;
-        let pendingOrderTotals = null;
+        <div class="form-section">
+          <h2>Contact Information</h2>
+
+          <div class="form-group">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
+            <span class="error-message" id="nameError">Please enter your name</span>
+          </div>
+
+          <div class="form-group">
+            <label for="contact">Contact Number <span class="required">*</span></label>
+            <input type="tel" id="contact" name="contact" required>
+            <span class="error-message" id="contactError">Please enter a valid contact number</span>
+          </div>
+
+           <CHANGE> 
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message" id="emailError">Please enter a valid email address</span>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Shipping Address <span class="required">*</span></label>
+            <textarea id="address" name="address" required></textarea>
+            <span class="error-message" id="addressError">Please enter your shipping address</span>
+          </div>
+
+          <div class="form-group hidden" id="countryGroup">
+            <label for="country">Country <span class="required">*</span></label>
+            <input type="text" id="country" name="country">
+            <span class="error-message" id="countryError">Please enter your country</span>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h2>Date of Dispatch</h2>
+          <div class="form-group">
+            <label for="dispatchDate">Select Dispatch Date <span class="required">*</span></label>
+            <select id="dispatchDate" name="dispatchDate" required onchange="toggleOtherDate()">
+              <option value="">-- Select Date --</option>
+              <option value="13/10/2025">13/10/2025</option>
+              <option value="14/10/2025">14/10/2025</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="error-message" id="dispatchError">Please select a dispatch date</span>
+          </div>
+
+          <div class="form-group hidden" id="otherDateGroup">
+            <label for="otherDate">Specify Date</label>
+            <input type="date" id="otherDate" name="otherDate" min="2025-10-02" max="2025-10-21">
+          </div>
+        </div>
 
 
-        // Initialize form
-        function initializeForm() {
-            updateFormBasedOnOrderType();
-            renderProducts();
+
+
+        <div class="form-section">
+          <h2>Select Products & Quantities</h2>
+          <p style="margin-bottom: 20px; color: #666;">Enter the quantity for each product you wish to order (minimum 1
+            product required)</p>
+
+          <div class="product-grid" id="productGrid">
+             Products will be dynamically populated based on order type and size 
+          </div>
+          <span class="error-message" id="productError">Please select at least one product</span>
+        </div>
+
+        <div class="form-section">
+          <div class="order-summary">
+            <h3>📊 Order Summary</h3>
+            <div class="summary-row">
+              <span class="summary-label">Total Boxes:</span>
+              <span class="summary-value" id="totalBoxes">0</span>
+            </div>
+             Added total weight display 
+            <div class="summary-row">
+              <span class="summary-label">Total Weight:</span>
+              <span class="summary-value" id="totalWeight">0 kg</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Subtotal:</span>
+              <span class="summary-value" id="subtotal">₹0</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Delivery Fee:</span>
+              <span class="summary-value" id="deliveryFee">To be informed</span>
+            </div>
+            <div class="summary-row total-row">
+              <span class="summary-label">Grand Total:</span>
+              <span class="summary-value" id="grandTotal">₹0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h2>Terms & Agreement</h2>
+          <div class="info-box">
+            <h3>📋 Order Policy</h3>
+            <ul>
+              <li>All products are made fresh to order</li>
+              <li>Quality guaranteed - 100% premium ingredients</li>
+            </ul>
+          </div>
+
+          <div class="form-group">
+            <div class="radio-option">
+              <input type="checkbox" id="agreement" name="agreement" required>
+              <label for="agreement">I agree to the terms and conditions <span class="required">*</span></label>
+            </div>
+            <span class="error-message" id="agreementError">You must agree to the terms</span>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="submit-btn" id="submitBtn">
+            Submit Order
+          </button>
+          <button type="reset" class="reset-btn">
+            Reset Form
+          </button>
+        </div>
+        <div class="form-section">
+          <div class="info-box">
+            <h3>📦 Delivery Information</h3>
+            <p><strong>Delivery charges will be informed by the admin.</strong></p>
+            <p><strong>For reference:</strong></p>
+            <ul>
+              <li>Outskirts of Pune & rest of Maharashtra : Rs. 50 per kg (Tej, Anjani, Trackon Courier)</li>
+              <li>Vidarbha: Rs. 60 per kg (Tej, Anjani, Trackon Courier)</li>
+              <li>Remote places within Maharashtra: Charges may vary, handled by Delhivery Courier</li>
+              <li>Out of Maharashtra: Rs. 130 per kg by Road, Rs. 230 per kg by Air</li>
+              <li>Extreme North & North East: Rates depend on case-to-case basis</li>
+              <li>According to new courier policies, additional tariff may charge and will be payable by the customer,we
+                are not responsible for any such charge. <b>(Only for International)</b></li>
+
+            </ul>
+            <p>
+              <strong>Storage Instructions:</strong><br>
+              - <strong>Motichoor Ladoo:</strong> Best consumed within 8–10 days. For longer shelf life, store in the
+              refrigerator.<br>
+              - <strong>All other products:</strong> Store in an airtight container; best within 2 months.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-info">
+          <h3>📦 Dispatch & Contact Information</h3>
+          <p>
+            <strong>🏭 Orders are dispatched from:</strong> Shed No. 1, Behind Ajinkya Nagar Society, Nityanand Hall
+            Lane, Hinge Sinhgad, Pune, Maharashtra, India
+          </p>
+          <p><strong>❓ For any questions related to your order, please contact us:</strong></p>
+          <div class="contact-links">
+            <div class="contact-item">
+              📞 <a href="tel:+919881763116">+91 9881763116</a>
+            </div>
+            <div class="contact-item">
+              ✉️ <a href="mailto:custcare.virtue@gmail.com">custcare.virtue@gmail.com</a>
+            </div>
+
+            <div class="contact-item">
+              <a href="https://www.instagram.com/gokhale_bandhu" target="_blank"
+                style="display:flex; align-items:center; gap:5px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram"
+                  width="20" height="20">
+                Instagram
+              </a>
+            </div>
+
+            <div class="contact-item">
+              <a href="https://www.facebook.com/profile.php?id=100057107064588&mibextid=wwXIfr" target="_blank"
+                style="display:flex; align-items:center; gap:5px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                  alt="Facebook" width="20" height="20">
+                Facebook
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    function toggleOtherDate() {
+      const dispatchSelect = document.getElementById("dispatchDate");
+      const otherDateGroup = document.getElementById("otherDateGroup");
+
+      if (dispatchSelect.value === "Other") {
+        otherDateGroup.classList.remove("hidden");
+      } else {
+        otherDateGroup.classList.add("hidden");
+        document.getElementById("otherDate").value = ""; // clear previous input
+      }
+    }
+  </script>
+
+  <script>
+    // Configuration - Replace with your Google Apps Script Web App URL
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMN5oeX4a8oBIeeQUFEyeBfNfPoZnIefzskBFnlicnPniWqD2HwzwY8jwYCZkkKcC-8g/exec';
+
+    // <CHANGE> Updated product prices to include 500gm for international orders
+    const productPrices = {
+      'In Pune': {
+        '200': {
+          'Bhajani Chakali': 95,
+          'Bhajani Kadboli': 95,
+          'Premium Chiwda': 95,
+          'Lasun Shev': 95,
+          'Sadhi Shev': 90,
+          'Khare Shankarpale': 90,
+          'Sweet Shankarpale': 95,
+          'Besan Ladoo': 125,
+          'Motichoor Ladoo': 170,
+          'Paushtik Ladoo': 140,
+
+        },
+        '500': {
+          'Bhajani Chakali': 235,
+          'Bhajani Kadboli': 235,
+          'Premium Chiwda': 235,
+          'Lasun Shev': 235,
+          'Sadhi Shev': 220,
+          'Khare Shankarpale': 220,
+          'Sweet Shankarpale': 235,
+          'Besan Ladoo': 310,
+          'Motichoor Ladoo': 420,
+          'Paushtik Ladoo': 340
+
+        },
+        'giftBoxes': {
+          'Diwali Faral Gift Box Type 1 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, besan ladoo(4) with surprise gift) - 600gm (Approx)': 525,
+          'Diwali Faral Gift Box Type 2 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, Motichoor Ladoo(4) with surprise gift) - 600gm (Approx)': 630
+        }
+      },
+      'Outside Pune': {
+        '200': {
+          'Bhajani Chakali': 95,
+          'Bhajani Kadboli': 95,
+          'Premium Chiwda': 95,
+          'Lasun Shev': 95,
+          'Sadhi Shev': 90,
+          'Khare Shankarpale': 90,
+          'Sweet Shankarpale': 95,
+          'Besan Ladoo': 125,
+          'Motichoor Ladoo': 170,
+          'Paushtik Ladoo': 140
+        },
+        '500': {
+          'Bhajani Chakali': 235,
+          'Bhajani Kadboli': 235,
+          'Premium Chiwda': 235,
+          'Lasun Shev': 235,
+          'Sadhi Shev': 220,
+          'Khare Shankarpale': 220,
+          'Sweet Shankarpale': 235,
+          'Besan Ladoo': 310,
+          'Motichoor Ladoo': 420,
+          'Paushtik Ladoo': 340
+        },
+        'giftBoxes': {
+          'Diwali Faral Gift Box Type 1 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, besan ladoo(4) with surprise gift) - 600gm(Approx)': 525,
+          'Diwali Faral Gift Box Type 2 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, Motichoor Ladoo(4) with surprise gift) - 600gm(Approx)': 630
+        }
+      },
+      'International': {
+        '200': {
+          'Saffron Flavoured Motichoor Ladoo': 175,
+          'Besan Ladoo': 125,
+          'Paushtik Ladoo': 140,
+          'Sweet Whole Wheat Shankarpale with Jaggery': 95,
+          'Khare Shankarpale': 90,
+          'Bhajani Chakali': 95,
+          'Bhajani Kadboli': 95,
+          'Plain Shev': 90,
+          'Garlic Shev': 95,
+          'Premium Chivada': 95,
+          'Anarase': 140,
+          'Dink Ladoo': 170,
+          'Nachani-Moog Ladoo': 120,
+          'Ola Naral Karanji': 140,
+          'Puranpoli': 40
+        },
+        '500': {
+          'Premium Chivada': 235,
+          'Garlic Shev': 235,
+          'Plain Shev': 220,
+          'Khare Shankarpale': 220,
+          'Sweet Whole Wheat Shankarpale with Jaggery': 235
+        },
+        'giftBoxes': {
+          'Diwali Faral Gift Box Type 1 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, besan ladoo(4) with surprise gift) - 600gm(Approx)': 525,
+          'Diwali Faral Gift Box Type 2 (Premium chiwda, sweet shankarpale, khare shankarpale, chakli kadboli, plain shev, Motichoor Ladoo(4) with surprise gift) - 600gm(Approx)': 630
+        }
+      }
+    };
+
+    // DOM Elements
+    const form = document.getElementById('orderForm');
+    const orderTypeRadios = document.getElementsByName('orderType');
+    const countryGroup = document.getElementById('countryGroup');
+    const productGrid = document.getElementById('productGrid');
+    const dispatchDateSelect = document.getElementById('dispatchDate');
+    const otherDateGroup = document.getElementById('otherDateGroup');
+    const submitBtn = document.getElementById('submitBtn');
+    const toast = document.getElementById('toast');
+    const successPage = document.getElementById('successPage');
+    const billTotalWeight = document.getElementById('billTotalWeight');
+    const paymentPage = document.getElementById('paymentPage');
+    const placeOrderBtn = document.getElementById('placeOrderBtn');
+
+
+    let currentOrderType = 'In Pune';
+    let pendingOrderData = null;
+    let pendingOrderTotals = null;
+
+
+    // Initialize form
+    function initializeForm() {
+      updateFormBasedOnOrderType();
+      renderProducts();
+    }
+
+    orderTypeRadios.forEach(radio => {
+      radio.addEventListener('change', function () {
+        currentOrderType = this.value;
+        updateFormBasedOnOrderType();
+        renderProducts();
+        calculateOrderTotal();
+      });
+    });
+
+    function updateFormBasedOnOrderType() {
+      if (currentOrderType === 'International') {
+        countryGroup.classList.remove('hidden');
+        document.getElementById('country').required = true;
+      } else {
+        countryGroup.classList.add('hidden');
+        document.getElementById('country').required = false;
+      }
+    }
+    function showPaymentPage(orderTotals) {
+      // Update payment summary
+      document.getElementById('paymentTotalBoxes').textContent = orderTotals.totalBoxes;
+      document.getElementById('paymentTotalWeight').textContent = `${orderTotals.totalWeightKg.toFixed(2)} kg`;
+      document.getElementById('paymentSubtotal').textContent = `₹${orderTotals.subtotal}`;
+      document.getElementById('paymentDeliveryFee').textContent = orderTotals.deliveryFeeText;
+      document.getElementById('paymentGrandTotal').textContent = `₹${orderTotals.grandTotal}`;
+      document.getElementById('paymentAmount').textContent = `₹${orderTotals.grandTotal}`;
+
+      const upiLink = document.getElementById('upiPaymentLink');
+      if (upiLink) {
+        const upiUrl = `upi://pay?pa=9881763116@upi&pn=Gokhale%20Bandhu&cu=INR&am=${orderTotals.grandTotal}`;
+        upiLink.href = upiUrl;
+      }
+
+      // Hide form and show payment page
+      form.style.display = 'none';
+      paymentPage.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // <CHANGE> Updated renderProducts to handle international 500gm products
+    function renderProducts() {
+      productGrid.innerHTML = '';
+
+      if (currentOrderType === 'International') {
+        // International orders - show both 200gm and 500gm where available
+        const products200 = productPrices['International']['200'];
+        const products500 = productPrices['International']['500'];
+
+        let index = 0;
+        for (const productName of Object.keys(products200)) {
+          const price200 = products200[productName];
+          const price500 = products500[productName];
+
+          const productDiv = document.createElement('div');
+
+          if (price500) {
+            // Product has both 200gm and 500gm options
+            productDiv.className = 'product-item-dual';
+            productDiv.innerHTML = `
+              <div class="product-name-header">${productName}</div>
+              <div class="size-input-group">
+                  <div class="size-label">
+                      <span>200 GM</span>
+                      <span class="size-price">₹${price200}</span>
+                  </div>
+                  <input type="number" id="product${index}_200" name="product${index}_200" 
+                         min="0" value="0" data-price="${price200}" 
+                         data-product="${productName}" data-size="200">
+              </div>
+              <div class="size-input-group">
+                  <div class="size-label">
+                      <span>500 GM</span>
+                      <span class="size-price">₹${price500}</span>
+                  </div>
+                  <input type="number" id="product${index}_500" name="product${index}_500" 
+                         min="0" value="0" data-price="${price500}" 
+                         data-product="${productName}" data-size="500">
+              </div>
+            `;
+          } else {
+            // Product only has 200gm option
+            productDiv.className = 'product-item';
+            productDiv.innerHTML = `
+              <label for="product${index}">${productName} (200gm)<br><span class="product-price">₹${price200}</span></label>
+              <input type="number" id="product${index}" name="product${index}" min="0" value="0" 
+                     data-price="${price200}" data-product="${productName}" data-size="200">
+            `;
+          }
+
+          productGrid.appendChild(productDiv);
+
+          const inputs = productDiv.querySelectorAll('input');
+          inputs.forEach(input => {
+            input.addEventListener('input', calculateOrderTotal);
+          });
+
+          index++;
         }
 
-        orderTypeRadios.forEach(radio => {
-            radio.addEventListener('change', function() {
-                currentOrderType = this.value;
-                updateFormBasedOnOrderType();
-                renderProducts();
-                calculateOrderTotal();
-            });
-        });
+        // Add gift boxes for International
+        const giftBoxes = productPrices['International']['giftBoxes'];
+        for (const [giftBoxName, price] of Object.entries(giftBoxes)) {
+          const productDiv = document.createElement('div');
 
-        function updateFormBasedOnOrderType() {
-            if (currentOrderType === 'International') {
-                countryGroup.classList.remove('hidden');
-                document.getElementById('country').required = true;
-            } else {
-                countryGroup.classList.add('hidden');
-                document.getElementById('country').required = false;
-            }
-        }
+          productDiv.className = 'product-item';
+          productDiv.style.gridColumn = '1 / -1'; // Make gift boxes span full width
+          productDiv.style.background = 'linear-gradient(135deg, #fff9e6 0%, #f3e5f5 100%)';
+          productDiv.style.border = '3px solid #d4af37';
 
-        function renderProducts() {
-            productGrid.innerHTML = '';
-            
-            if (currentOrderType === 'International') {
-                // International orders - only individual items
-                const products = productPrices['International'];
-                let index = 0;
-                for (const [productName, price] of Object.entries(products)) {
-                    if (productName === 'giftBoxes') continue; // Skip giftBoxes key
-                    
-                    const productDiv = document.createElement('div');
-                    productDiv.className = 'product-item';
-                    
-                    const productId = `product${index}`;
-                    productDiv.innerHTML = `
-                        <label for="${productId}">${productName}<br><span class="product-price">₹${price}</span></label>
-                        <input type="number" id="${productId}" name="${productId}" min="0" value="0" 
-                               data-price="${price}" data-product="${productName}" data-size="200">
-                    `;
-                    
-                    productGrid.appendChild(productDiv);
-                    
-                    const input = productDiv.querySelector('input');
-                    input.addEventListener('input', calculateOrderTotal);
-                    
-                    index++;
-                }
-                
-                // Add gift boxes for International
-                const giftBoxes = productPrices['International']['giftBoxes'];
-                for (const [giftBoxName, price] of Object.entries(giftBoxes)) {
-                    const productDiv = document.createElement('div');
-                    
-                    productDiv.className = 'product-item';
-                    productDiv.style.gridColumn = '1 / -1'; // Make gift boxes span full width
-                    productDiv.style.background = 'linear-gradient(135deg, #fff9e6 0%, #f3e5f5 100%)';
-                    productDiv.style.border = '3px solid #d4af37';
-                    
-                    const productId = `giftbox${index}`;
-                    productDiv.innerHTML = `
+          const productId = `giftbox${index}`;
+          productDiv.innerHTML = `
                         <label for="${productId}" style="font-weight: 700; color: #6a1b9a;">🎁 ${giftBoxName}<br><span class="product-price">₹${price}</span></label>
                         <input type="number" id="${productId}" name="${productId}" min="0" value="0" 
                                data-price="${price}" data-product="${giftBoxName}" data-size="600" data-isgiftbox="true">
                     `;
-                    
-                    productGrid.appendChild(productDiv);
-                    
-                    const input = productDiv.querySelector('input');
-                    input.addEventListener('input', calculateOrderTotal);
-                    
-                    index++;
-                }
-            } else {
-                // In Pune / Outside Pune - show both 200gm and 500gm options
-                const products200 = productPrices[currentOrderType]['200'];
-                const products500 = productPrices[currentOrderType]['500'];
-                
-                let index = 0;
-                for (const productName of Object.keys(products200)) {
-                    const price200 = products200[productName];
-                    const price500 = products500[productName];
-                    
-                    const productDiv = document.createElement('div');
-                    productDiv.className = 'product-item-dual';
-                    
-                    productDiv.innerHTML = `
+
+          productGrid.appendChild(productDiv);
+
+          const input = productDiv.querySelector('input');
+          input.addEventListener('input', calculateOrderTotal);
+
+          index++;
+        }
+      } else {
+        // In Pune / Outside Pune - show both 200gm and 500gm options
+        const products200 = productPrices[currentOrderType]['200'];
+        const products500 = productPrices[currentOrderType]['500'];
+
+        let index = 0;
+        for (const productName of Object.keys(products200)) {
+          const price200 = products200[productName];
+          const price500 = products500[productName];
+
+          const productDiv = document.createElement('div');
+          productDiv.className = 'product-item-dual';
+
+          productDiv.innerHTML = `
                         <div class="product-name-header">${productName}</div>
                         <div class="size-input-group">
                             <div class="size-label">
@@ -1336,385 +1620,405 @@
                                    data-product="${productName}" data-size="500">
                         </div>
                     `;
-                    
-                    productGrid.appendChild(productDiv);
-                    
-                    const inputs = productDiv.querySelectorAll('input');
-                    inputs.forEach(input => {
-                        input.addEventListener('input', calculateOrderTotal);
-                    });
-                    
-                    index++;
-                }
-                
-                // Add gift boxes for In Pune / Outside Pune
-                const giftBoxes = productPrices[currentOrderType]['giftBoxes'];
-                for (const [giftBoxName, price] of Object.entries(giftBoxes)) {
-                    const productDiv = document.createElement('div');
-                    productDiv.className = 'product-item';
-                    productDiv.style.gridColumn = '1 / -1'; // Make gift boxes span full width
-                    productDiv.style.background = 'linear-gradient(135deg, #fff9e6 0%, #f3e5f5 100%)';
-                    productDiv.style.border = '3px solid #d4af37';
-                    
-                    const productId = `giftbox${index}`;
-                    productDiv.innerHTML = `
+
+          productGrid.appendChild(productDiv);
+
+          const inputs = productDiv.querySelectorAll('input');
+          inputs.forEach(input => {
+            input.addEventListener('input', calculateOrderTotal);
+          });
+
+          index++;
+        }
+
+        // Add gift boxes for In Pune / Outside Pune
+        const giftBoxes = productPrices[currentOrderType]['giftBoxes'];
+        for (const [giftBoxName, price] of Object.entries(giftBoxes)) {
+          const productDiv = document.createElement('div');
+          productDiv.className = 'product-item';
+          productDiv.style.gridColumn = '1 / -1'; // Make gift boxes span full width
+          productDiv.style.background = 'linear-gradient(135deg, #fff9e6 0%, #f3e5f5 100%)';
+          productDiv.style.border = '3px solid #d4af37';
+
+          const productId = `giftbox${index}`;
+          productDiv.innerHTML = `
                         <label for="${productId}" style="font-weight: 700; color: #6a1b9a;">🎁 ${giftBoxName}<br><span class="product-price">₹${price}</span></label>
                         <input type="number" id="${productId}" name="${productId}" min="0" value="0" 
                                data-price="${price}" data-product="${giftBoxName}" data-size="600" data-isgiftbox="true">
                     `;
-                    
-                    productGrid.appendChild(productDiv);
-                    
-                    const input = productDiv.querySelector('input');
-                    input.addEventListener('input', calculateOrderTotal);
-                    
-                    index++;
-                }
-            }
+
+          productGrid.appendChild(productDiv);
+
+          const input = productDiv.querySelector('input');
+          input.addEventListener('input', calculateOrderTotal);
+
+          index++;
         }
+      }
+    }
 
-        function calculateOrderTotal() {
-            let totalBoxes = 0;
-            let subtotal = 0;
-            let totalWeightKg = 0;
+    function calculateOrderTotal() {
+      let totalBoxes = 0;
+      let subtotal = 0;
+      let totalWeightKg = 0;
 
-            const productInputs = productGrid.querySelectorAll('input[type="number"]');
-            productInputs.forEach(input => {
-                const quantity = parseInt(input.value) || 0;
-                const price = parseInt(input.getAttribute('data-price')) || 0;
-                const size = parseInt(input.getAttribute('data-size')) || 200;
-                const isGiftBox = input.getAttribute('data-isgiftbox') === 'true';
-                
-                totalBoxes += quantity;
-                subtotal += quantity * price;
-                
-                // Calculate weight: 200gm = 0.2kg, 500gm = 0.5kg, 600gm = 0.6kg (gift box)
-                totalWeightKg += quantity * (size / 1000);
-            });
+      const productInputs = productGrid.querySelectorAll('input[type="number"]');
+      productInputs.forEach(input => {
+        const quantity = parseInt(input.value) || 0;
+        const price = parseInt(input.getAttribute('data-price')) || 0;
+        const size = parseInt(input.getAttribute('data-size')) || 200;
+        const isGiftBox = input.getAttribute('data-isgiftbox') === 'true';
 
-            // Calculate delivery fee for Pune orders
-            let deliveryFee = 0;
-            let deliveryFeeText = 'To be informed';
-            
-            if (currentOrderType === 'In Pune') {
-                if (subtotal > 1800) {
-                    deliveryFee = 0;
-                    deliveryFeeText = 'FREE';
-                } else if (totalWeightKg <= 4) {
-                    deliveryFee = 80;
-                    deliveryFeeText = '₹80';
-                } else if (totalWeightKg <= 6) {
-                    deliveryFee = 150;
-                    deliveryFeeText = '₹150';
-                } else {
-                    deliveryFeeText = 'To be informed';
-                }
-            }
+        totalBoxes += quantity;
+        subtotal += quantity * price;
 
-            const grandTotal = subtotal + deliveryFee;
+        // Calculate weight: 200gm = 0.2kg, 500gm = 0.5kg, 600gm = 0.6kg (gift box)
+        totalWeightKg += quantity * (size / 1000);
+      });
 
-            // Update display
-            document.getElementById('totalBoxes').textContent = totalBoxes;
-            document.getElementById('totalWeight').textContent = `${totalWeightKg.toFixed(2)} kg`;
-            document.getElementById('subtotal').textContent = `₹${subtotal}`;
-            document.getElementById('deliveryFee').textContent = deliveryFeeText;
-            document.getElementById('grandTotal').textContent = `₹${grandTotal}`;
+      // Calculate delivery fee for Pune orders
+      let deliveryFee = 0;
+      let deliveryFeeText = 'To be informed';
 
-            return { totalBoxes, totalWeightKg, subtotal, deliveryFee, deliveryFeeText, grandTotal };
+      if (currentOrderType === 'In Pune') {
+        if (subtotal > 1800) {
+          deliveryFee = 0;
+          deliveryFeeText = 'FREE';
+        } else if (totalWeightKg <= 4) {
+          deliveryFee = 90;
+          deliveryFeeText = '₹90';
+        } else if (totalWeightKg <= 7) {
+          deliveryFee = 150;
+          deliveryFeeText = '₹150';
+        } else {
+          deliveryFeeText = 'To be informed';
         }
+      }
 
-        // Toggle other date field
-        dispatchDateSelect.addEventListener('change', function() {
-            if (this.value === 'Other') {
-                otherDateGroup.classList.remove('hidden');
-                document.getElementById('otherDate').required = true;
-            } else {
-                otherDateGroup.classList.add('hidden');
-                document.getElementById('otherDate').required = false;
-            }
+      const grandTotal = subtotal + deliveryFee;
+
+      // Update display
+      document.getElementById('totalBoxes').textContent = totalBoxes;
+      document.getElementById('totalWeight').textContent = `${totalWeightKg.toFixed(2)} kg`;
+      document.getElementById('subtotal').textContent = `₹${subtotal}`;
+      document.getElementById('deliveryFee').textContent = deliveryFeeText;
+      document.getElementById('grandTotal').textContent = `₹${grandTotal}`;
+
+      return { totalBoxes, totalWeightKg, subtotal, deliveryFee, deliveryFeeText, grandTotal };
+    }
+
+    // Toggle other date field
+    dispatchDateSelect.addEventListener('change', function () {
+      if (this.value === 'Other') {
+        otherDateGroup.classList.remove('hidden');
+        document.getElementById('otherDate').required = true;
+      } else {
+        otherDateGroup.classList.add('hidden');
+        document.getElementById('otherDate').required = false;
+      }
+    });
+
+    // Hide error messages on input
+    document.addEventListener('input', function (e) {
+      if (e.target.matches('input, textarea, select')) {
+        const errorId = e.target.id + 'Error';
+        const errorElement = document.getElementById(errorId);
+        if (errorElement) {
+          errorElement.style.display = 'none';
+        }
+      }
+    });
+
+    // Form validation
+    function validateForm() {
+      let isValid = true;
+
+      // Hide all error messages first
+      document.querySelectorAll('.error-message').forEach(el => {
+        el.style.display = 'none';
+      });
+
+      // Name validation
+      const name = document.getElementById('name').value.trim();
+      if (!name) {
+        document.getElementById('nameError').style.display = 'block';
+        isValid = false;
+      }
+
+      // Contact validation
+      const contact = document.getElementById('contact').value.trim();
+      if (!contact || contact.length < 10) {
+        document.getElementById('contactError').style.display = 'block';
+        isValid = false;
+      }
+
+      // <CHANGE> Email validation
+      const email = document.getElementById('email').value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        document.getElementById('emailError').style.display = 'block';
+        isValid = false;
+      }
+
+      // Address validation
+      const address = document.getElementById('address').value.trim();
+      if (!address) {
+        document.getElementById('addressError').style.display = 'block';
+        isValid = false;
+      }
+
+      // Country validation for international orders
+      if (currentOrderType === 'International') {
+        const country = document.getElementById('country').value.trim();
+        if (!country) {
+          document.getElementById('countryError').style.display = 'block';
+          isValid = false;
+        }
+      }
+
+      // Dispatch date validation
+      const dispatchDate = document.getElementById('dispatchDate').value;
+      if (!dispatchDate) {
+        document.getElementById('dispatchError').style.display = 'block';
+        isValid = false;
+      }
+
+      // Product quantity validation
+      const orderTotals = calculateOrderTotal();
+      if (orderTotals.totalBoxes === 0) {
+        document.getElementById('productError').style.display = 'block';
+        isValid = false;
+      }
+
+      // Agreement validation
+      const agreement = document.getElementById('agreement').checked;
+      if (!agreement) {
+        document.getElementById('agreementError').style.display = 'block';
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Processing...';
+
+      const orderTotals = calculateOrderTotal();
+
+      // <CHANGE> Added email to formData and combined contact/email format
+      const contactNumber = document.getElementById('contact').value.trim();
+      const emailAddress = document.getElementById('email').value.trim();
+      const combinedContact = `${contactNumber}/${emailAddress}`;
+
+      const formData = {
+        timestamp: new Date().toISOString(),
+        orderType: currentOrderType,
+        name: document.getElementById('name').value.trim(),
+        contact: combinedContact,
+        email: emailAddress,
+        address: document.getElementById('address').value.trim(),
+        country: document.getElementById('country').value.trim() || 'N/A',
+        dispatchDate: document.getElementById('dispatchDate').value === 'Other'
+          ? document.getElementById('otherDate').value
+          : document.getElementById('dispatchDate').value,
+        products: {},
+        totalBoxes: orderTotals.totalBoxes,
+        totalWeightKg: orderTotals.totalWeightKg,
+        subtotal: orderTotals.subtotal,
+        deliveryFee: orderTotals.deliveryFeeText,
+        grandTotal: orderTotals.grandTotal
+      };
+
+      // Collect product quantities with size information
+      const productInputs = productGrid.querySelectorAll('input[type="number"]');
+      productInputs.forEach(input => {
+        const productName = input.getAttribute('data-product');
+        const size = input.getAttribute('data-size');
+        const quantity = parseInt(input.value) || 0;
+        const isGiftBox = input.getAttribute('data-isgiftbox') === 'true';
+
+        if (quantity > 0) {
+          if (isGiftBox) {
+            // Gift boxes don't need size suffix
+            formData.products[productName] = quantity;
+          } else {
+            // Regular products with size
+            const key = `${productName} (${size}gm)`;
+            formData.products[key] = quantity;
+          }
+        }
+      });
+
+      // Store data for later submission
+      pendingOrderData = formData;
+      pendingOrderTotals = orderTotals;
+
+      // Show payment page
+      showPaymentPage(orderTotals);
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Order';
+    });
+
+    function showPaymentPage(orderTotals) {
+      // Update payment summary
+      document.getElementById('paymentTotalBoxes').textContent = orderTotals.totalBoxes;
+      document.getElementById('paymentTotalWeight').textContent = `${orderTotals.totalWeightKg.toFixed(2)} kg`;
+      document.getElementById('paymentSubtotal').textContent = `₹${orderTotals.subtotal}`;
+      document.getElementById('paymentDeliveryFee').textContent = orderTotals.deliveryFeeText;
+      document.getElementById('paymentGrandTotal').textContent = `₹${orderTotals.grandTotal}`;
+      document.getElementById('paymentAmount').textContent = `₹${orderTotals.grandTotal}`;
+
+      // Hide form and show payment page
+      form.style.display = 'none';
+      paymentPage.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goBackToForm() {
+      paymentPage.classList.remove('show');
+      form.style.display = 'block';
+      document.getElementById('paymentConfirmed').checked = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    async function submitOrderToSheet() {
+      const paymentConfirmed = document.getElementById('paymentConfirmed').checked;
+
+      if (!paymentConfirmed) {
+        alert('Please confirm that you have completed the payment before placing the order.');
+        return;
+      }
+
+      placeOrderBtn.disabled = true;
+      placeOrderBtn.textContent = 'Placing Order...';
+
+      try {
+        // Send data to Google Apps Script
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors', // Important for this type of fetch
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(pendingOrderData)
         });
 
-        // Hide error messages on input
-        document.addEventListener('input', function(e) {
-            if (e.target.matches('input, textarea, select')) {
-                const errorId = e.target.id + 'Error';
-                const errorElement = document.getElementById(errorId);
-                if (errorElement) {
-                    errorElement.style.display = 'none';
-                }
-            }
+        // Show toast notification
+        showToast('🎉 Order placed successfully!');
+
+        // Show success page with bill
+        setTimeout(() => {
+          populateBill(pendingOrderData, pendingOrderTotals);
+          paymentPage.classList.remove('show');
+          successPage.classList.add('show');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 500);
+
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('There was an error submitting your order. Please try again or contact us at +91 9881763116');
+
+        placeOrderBtn.disabled = false;
+        placeOrderBtn.textContent = 'Place Order';
+      }
+    }
+
+    // <CHANGE> Updated populateBill to show email separately
+    function populateBill(formData, orderTotals) {
+      document.getElementById('billDate').textContent = new Date(formData.timestamp).toLocaleDateString();
+      document.getElementById('billName').textContent = formData.name;
+      
+      // Extract phone from combined contact
+      const contactParts = formData.contact.split('/');
+      document.getElementById('billContact').textContent = contactParts[0];
+      document.getElementById('billEmail').textContent = formData.email;
+      document.getElementById('billDispatch').textContent = formData.dispatchDate;
+
+      const billProductsDiv = document.getElementById('billProducts');
+      billProductsDiv.innerHTML = '';
+
+      for (const [productNameWithSize, quantity] of Object.entries(formData.products)) {
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('bill-row', 'product-row');
+
+        // Extract price from the input elements
+        const productInputs = productGrid.querySelectorAll('input[type="number"]');
+        let price = 0;
+        productInputs.forEach(input => {
+          const inputProduct = input.getAttribute('data-product');
+          const inputSize = input.getAttribute('data-size');
+          const isGiftBox = input.getAttribute('data-isgiftbox') === 'true';
+
+          let inputKey;
+          if (isGiftBox) {
+            inputKey = inputProduct;
+          } else {
+            inputKey = `${inputProduct} (${inputSize}gm)`;
+          }
+
+          if (inputKey === productNameWithSize) {
+            price = parseInt(input.getAttribute('data-price')) || 0;
+          }
         });
 
-        // Form validation
-        function validateForm() {
-            let isValid = true;
+        const totalPrice = quantity * price;
 
-            // Hide all error messages first
-            document.querySelectorAll('.error-message').forEach(el => {
-                el.style.display = 'none';
-            });
-
-            // Name validation
-            const name = document.getElementById('name').value.trim();
-            if (!name) {
-                document.getElementById('nameError').style.display = 'block';
-                isValid = false;
-            }
-
-            // Contact validation
-            const contact = document.getElementById('contact').value.trim();
-            if (!contact || contact.length < 10) {
-                document.getElementById('contactError').style.display = 'block';
-                isValid = false;
-            }
-
-            // Address validation
-            const address = document.getElementById('address').value.trim();
-            if (!address) {
-                document.getElementById('addressError').style.display = 'block';
-                isValid = false;
-            }
-
-            // Country validation for international orders
-            if (currentOrderType === 'International') {
-                const country = document.getElementById('country').value.trim();
-                if (!country) {
-                    document.getElementById('countryError').style.display = 'block';
-                    isValid = false;
-                }
-            }
-
-            // Dispatch date validation
-            const dispatchDate = document.getElementById('dispatchDate').value;
-            if (!dispatchDate) {
-                document.getElementById('dispatchError').style.display = 'block';
-                isValid = false;
-            }
-
-            // Product quantity validation
-            const orderTotals = calculateOrderTotal();
-            if (orderTotals.totalBoxes === 0) {
-                document.getElementById('productError').style.display = 'block';
-                isValid = false;
-            }
-
-            // Agreement validation
-            const agreement = document.getElementById('agreement').checked;
-            if (!agreement) {
-                document.getElementById('agreementError').style.display = 'block';
-                isValid = false;
-            }
-
-            return isValid;
-        }
-
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            if (!validateForm()) {
-                return;
-            }
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Processing...';
-
-            const orderTotals = calculateOrderTotal();
-
-            const formData = {
-                timestamp: new Date().toISOString(),
-                orderType: currentOrderType,
-                name: document.getElementById('name').value.trim(),
-                contact: document.getElementById('contact').value.trim(),
-                address: document.getElementById('address').value.trim(),
-                country: document.getElementById('country').value.trim() || 'N/A',
-                dispatchDate: document.getElementById('dispatchDate').value === 'Other' 
-                    ? document.getElementById('otherDate').value 
-                    : document.getElementById('dispatchDate').value,
-                products: {},
-                totalBoxes: orderTotals.totalBoxes,
-                totalWeightKg: orderTotals.totalWeightKg,
-                subtotal: orderTotals.subtotal,
-                deliveryFee: orderTotals.deliveryFeeText,
-                grandTotal: orderTotals.grandTotal
-            };
-
-            // Collect product quantities with size information
-            const productInputs = productGrid.querySelectorAll('input[type="number"]');
-            productInputs.forEach(input => {
-                const productName = input.getAttribute('data-product');
-                const size = input.getAttribute('data-size');
-                const quantity = parseInt(input.value) || 0;
-                const isGiftBox = input.getAttribute('data-isgiftbox') === 'true';
-                
-                if (quantity > 0) {
-                    if (isGiftBox) {
-                        // Gift boxes don't need size suffix
-                        formData.products[productName] = quantity;
-                    } else {
-                        // Regular products with size
-                        const key = `${productName} (${size}gm)`;
-                        formData.products[key] = quantity;
-                    }
-                }
-            });
-
-            // Store data for later submission
-            pendingOrderData = formData;
-            pendingOrderTotals = orderTotals;
-
-            // Show payment page
-            showPaymentPage(orderTotals);
-
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Order';
-        });
-
-        function showPaymentPage(orderTotals) {
-            // Update payment summary
-            document.getElementById('paymentTotalBoxes').textContent = orderTotals.totalBoxes;
-            document.getElementById('paymentTotalWeight').textContent = `${orderTotals.totalWeightKg.toFixed(2)} kg`;
-            document.getElementById('paymentSubtotal').textContent = `₹${orderTotals.subtotal}`;
-            document.getElementById('paymentDeliveryFee').textContent = orderTotals.deliveryFeeText;
-            document.getElementById('paymentGrandTotal').textContent = `₹${orderTotals.grandTotal}`;
-            document.getElementById('paymentAmount').textContent = `₹${orderTotals.grandTotal}`;
-
-            // Hide form and show payment page
-            form.style.display = 'none';
-            paymentPage.classList.add('show');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function goBackToForm() {
-            paymentPage.classList.remove('show');
-            form.style.display = 'block';
-            document.getElementById('paymentConfirmed').checked = false;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        async function submitOrderToSheet() {
-            const paymentConfirmed = document.getElementById('paymentConfirmed').checked;
-            
-            if (!paymentConfirmed) {
-                alert('Please confirm that you have completed the payment before placing the order.');
-                return;
-            }
-
-            placeOrderBtn.disabled = true;
-            placeOrderBtn.textContent = 'Placing Order...';
-
-            try {
-                // Send data to Google Apps Script
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // Important for this type of fetch
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(pendingOrderData)
-                });
-
-                // Show toast notification
-                showToast('🎉 Order placed successfully!');
-
-                // Show success page with bill
-                setTimeout(() => {
-                    populateBill(pendingOrderData, pendingOrderTotals);
-                    paymentPage.classList.remove('show');
-                    successPage.classList.add('show');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, 500);
-
-            } catch (error) {
-                console.error('Error submitting form:', error);
-                alert('There was an error submitting your order. Please try again or contact us at +91 9881763116');
-                
-                placeOrderBtn.disabled = false;
-                placeOrderBtn.textContent = 'Place Order';
-            }
-        }
-
-        function populateBill(formData, orderTotals) {
-            document.getElementById('billDate').textContent = new Date(formData.timestamp).toLocaleDateString();
-            document.getElementById('billName').textContent = formData.name;
-            document.getElementById('billContact').textContent = formData.contact;
-            document.getElementById('billDispatch').textContent = formData.dispatchDate;
-
-            const billProductsDiv = document.getElementById('billProducts');
-            billProductsDiv.innerHTML = '';
-
-            for (const [productNameWithSize, quantity] of Object.entries(formData.products)) {
-                const productDiv = document.createElement('div');
-                productDiv.classList.add('bill-row', 'product-row');
-                
-                // Extract price from the input elements
-                const productInputs = productGrid.querySelectorAll('input[type="number"]');
-                let price = 0;
-                productInputs.forEach(input => {
-                    const inputProduct = input.getAttribute('data-product');
-                    const inputSize = input.getAttribute('data-size');
-                    const isGiftBox = input.getAttribute('data-isgiftbox') === 'true';
-                    
-                    let inputKey;
-                    if (isGiftBox) {
-                        inputKey = inputProduct;
-                    } else {
-                        inputKey = `${inputProduct} (${inputSize}gm)`;
-                    }
-                    
-                    if (inputKey === productNameWithSize) {
-                        price = parseInt(input.getAttribute('data-price')) || 0;
-                    }
-                });
-                
-                const totalPrice = quantity * price;
-
-                productDiv.innerHTML = `
+        productDiv.innerHTML = `
                     <span class="product-name">${productNameWithSize}</span>
                     <span class="product-qty">Qty: ${quantity}</span>
                     <span class="product-price">₹${totalPrice}</span>
                 `;
-                billProductsDiv.appendChild(productDiv);
-            }
+        billProductsDiv.appendChild(productDiv);
+      }
 
-            document.getElementById('billTotalBoxes').textContent = orderTotals.totalBoxes;
-            billTotalWeight.textContent = `${orderTotals.totalWeightKg.toFixed(2)} kg`;
-            document.getElementById('billSubtotal').textContent = `₹${orderTotals.subtotal}`;
-            document.getElementById('billDeliveryFee').textContent = orderTotals.deliveryFeeText;
-            document.getElementById('billGrandTotal').textContent = `₹${orderTotals.grandTotal}`;
-        }
+      document.getElementById('billTotalBoxes').textContent = orderTotals.totalBoxes;
+      billTotalWeight.textContent = `${orderTotals.totalWeightKg.toFixed(2)} kg`;
+      document.getElementById('billSubtotal').textContent = `₹${orderTotals.subtotal}`;
+      document.getElementById('billDeliveryFee').textContent = orderTotals.deliveryFeeText;
+      document.getElementById('billGrandTotal').textContent = `₹${orderTotals.grandTotal}`;
+    }
 
-        // Reset form handler
-        form.addEventListener('reset', function() {
-            document.querySelectorAll('.error-message').forEach(el => {
-                el.style.display = 'none';
-            });
-            
-            countryGroup.classList.add('hidden');
-            otherDateGroup.classList.add('hidden');
-            
-            currentOrderType = 'In Pune';
-            
-            setTimeout(() => {
-                updateFormBasedOnOrderType();
-                renderProducts();
-                calculateOrderTotal();
-            }, 0);
-            
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Order';
-        });
+    // Reset form handler
+    form.addEventListener('reset', function () {
+      document.querySelectorAll('.error-message').forEach(el => {
+        el.style.display = 'none';
+      });
 
-        function showToast(message) {
-            toast.textContent = message;
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
+      countryGroup.classList.add('hidden');
+      otherDateGroup.classList.add('hidden');
 
-        // Initialize on page load
-        initializeForm();
-    </script>
+      currentOrderType = 'In Pune';
+
+      setTimeout(() => {
+        updateFormBasedOnOrderType();
+        renderProducts();
+        calculateOrderTotal();
+      }, 0);
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Order';
+    });
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Initialize on page load
+    initializeForm();
+  </script>
 </body>
+
 </html>
